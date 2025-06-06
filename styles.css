@@ -1,27 +1,40 @@
 /* CSS Variables */
 :root {
-    --primary-color: #007bff; /* Original blue, good for links */
-    --accent-color: #f77f00; /* New accent for highlights/buttons */
-    --light-bg: #f5f5f5; /* Lighter background for light mode */
-    --dark-bg: #1a1a1a; /* Darker background for dark mode */
-    --text-color: #333; /* Dark text for light mode */
-    --dark-text: #e0e0e0; /* Light text for dark mode */
-    --card-bg-light: #ffffff; /* Card background in light mode */
-    --card-bg-dark: #2a2a2a; /* Card background in dark mode */
-    --border-color-light: #ddd;
-    --border-color-dark: #444;
+    /* Default Colors (These will be your Dark Mode colors) */
+    --bg-primary: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --accent-color: #f77f00; /* Orange accent */
+    --link-color: #79c0ff; /* Lighter blue for links in dark mode */
+    --card-bg: #2a2a2a;
+    --border-color: #444;
+    --header-footer-bg: #222;
+    --hero-bg: #000000; /* Black for hero section */
+    --hero-text: gold; /* Gold for hero text */
+    --hero-p-text: #ccc; /* Lighter grey for hero general text */
+
+    /* Light Mode Overrides (These will be applied when .light-mode is on body) */
+    --light-bg-primary: #f5f5f5;
+    --light-text-primary: #333;
+    --light-link-color: #007bff; /* Original blue */
+    --light-card-bg: #ffffff;
+    --light-border-color: #ddd;
+    --light-header-footer-bg: #ec9b9b;
+    --light-hero-bg: #eaf1fa; /* Light background for hero */
+    --light-hero-text: #333; /* Dark text for hero */
+    --light-hero-p-text: #555; /* Darker grey for hero general text */
+
 
     /* Fonts */
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
 
-/* Base Styles */
+/* Base Styles - Default to Dark Mode */
 body {
     font-family: var(--font-body);
     margin: 0;
-    background-color: var(--light-bg);
-    color: var(--text-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -30,179 +43,184 @@ body {
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 1rem 0; /* Add padding for consistency */
+    padding: 1rem 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--text-color); /* Default */
+    color: var(--text-primary);
 }
 
 a {
-    color: var(--primary-color);
+    color: var(--link-color);
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    color: #0056b3; /* Slightly darker primary color on hover */
+    color: #4da6ff; /* Slightly darker link color on hover in dark mode */
 }
 
 /* Header & Navigation */
 header {
-    background-color: #ec9b9b; /* Still using your original header color for light mode */
+    background-color: var(--header-footer-bg);
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Darker shadow for dark mode */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows wrapping */
+    flex-wrap: wrap;
 }
 
 .nav-top-row { /* NEW WRAPPER FOR MOBILE HAMBURGER/LOGO */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Take full width within nav on mobile */
+    width: 100%;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Allow logo to take space on small screens */
+    flex-grow: 1;
 }
 
 .logo img {
-    width: 50px; /* Slightly larger logo */
+    width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 15px; /* Increased margin */
-    border: 2px solid var(--primary-color); /* Add a subtle border */
-    object-fit: cover; /* Ensure image covers the area */
+    margin-right: 15px;
+    border: 2px solid var(--link-color); /* Border color based on link color */
+    object-fit: cover;
 }
 
 .logo-text h1 {
     font-size: 1.5rem;
     margin: 0;
-    white-space: nowrap; /* Prevent name from wrapping */
+    white-space: nowrap;
 }
 
 .nav-links {
-    display: flex; /* Default to flex for horizontal layout on large screens */
+    display: flex;
     align-items: center;
 }
 
 .nav-links a {
-    margin: 0 15px; /* Increased margin for better spacing */
+    margin: 0 15px;
     font-weight: 500;
-    color: inherit; /* Inherit color from body for theme changes */
+    color: inherit;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color); /* Keep primary color for hover in both modes */
+    color: var(--link-color);
 }
 
 /* Theme Toggle Button */
 .theme-toggle {
     background: none;
-    border: 2px solid transparent; /* Subtle border that shows on focus/hover */
-    font-size: 1.4rem; /* Slightly larger icon */
+    border: 2px solid transparent;
+    font-size: 1.4rem;
     cursor: pointer;
-    color: inherit; /* Inherit color from body for theme changes */
+    color: inherit;
     margin-left: 1.5rem;
-    padding: 5px 8px; /* Add padding for clickable area */
+    padding: 5px 8px;
     border-radius: 5px;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(0,0,0,0.05); /* Subtle background on hover */
-    border-color: var(--primary-color);
+    background-color: rgba(255,255,255,0.05); /* Subtle background on hover in dark mode */
+    border-color: var(--link-color);
 }
 
 /* Hamburger Menu (hidden by default on large screens) */
 .hamburger {
-    display: none; /* Hidden on large screens */
-    font-size: 1.8rem; /* Larger hamburger icon */
+    display: none;
+    font-size: 1.8rem;
     background: none;
     border: none;
     cursor: pointer;
-    color: inherit; /* Inherit color for theme changes */
-    padding: 5px 10px; /* Add padding for clickable area */
+    color: inherit;
+    padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.2s;
 }
 
 .hamburger:hover {
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(255,255,255,0.05);
 }
 
-/* Hero Section (was resources-header) */
+/* Hero Section */
 .hero-section {
-    padding: 3rem 0; /* More padding for a bolder look */
+    padding: 3rem 0;
     text-align: center;
-    background: #eaf1fa; /* Light background for light mode */
-    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.05); /* Subtle inner shadow */
+    background: var(--hero-bg);
+    color: var(--hero-text);
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2);
 }
 
 .hero-section h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: inherit; /* Inherit hero text color */
 }
 
 .hero-section p {
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto 1.5rem auto;
-    color: #555;
+    color: var(--hero-p-text);
 }
 
 .hero-section .cta-text {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--accent-color); /* Highlight the CTA */
+    color: var(--hero-text); /* Keep gold for CTA in dark mode */
     margin-top: 1rem;
 }
 
 
-/* Resources Grid */
+/* Resources Grid Section */
+.resources-grid-section { /* New wrapper for resources heading and grid */
+    margin-top: 3rem; /* Add top margin for separation from hero */
+}
+
 .resources-grid {
     display: grid;
-    gap: 2rem; /* Increased gap */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for cards */
-    margin: 3rem 0; /* More vertical margin */
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin: 3rem 0;
 }
 
 .section-title {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .resource-card {
-    background: var(--card-bg-light);
-    padding: 1.5rem; /* More padding */
-    border-radius: 10px; /* Softer corners */
-    border: 1px solid var(--border-color-light);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s, border-color 0.3s;
 }
 
 .resource-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 .resource-category {
     font-weight: bold;
-    margin-bottom: 1rem; /* More space */
+    margin-bottom: 1rem;
     font-size: 1.1rem;
-    color: var(--primary-color); /* Use primary color for category headings */
+    color: var(--link-color); /* Use link color for category headings in dark mode */
 }
 
 .resource-category i {
@@ -216,49 +234,49 @@ nav {
 }
 
 .resource-item {
-    margin-bottom: 0.7rem; /* More spacing between items */
+    margin-bottom: 0.7rem;
 }
 
 .resource-link {
-    display: block; /* Make the entire list item area clickable */
-    padding: 5px 0; /* Padding for better clickable area */
-    color: var(--text-color); /* Default text color for list items */
+    display: block;
+    padding: 5px 0;
+    color: var(--text-primary); /* Default text color for list items */
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .resource-link:hover {
-    color: var(--primary-color); /* Primary color on hover */
-    background-color: rgba(0, 123, 255, 0.05); /* Very subtle background on hover */
+    color: var(--link-color);
+    background-color: rgba(121, 192, 255, 0.1); /* Subtle background on hover in dark mode */
     border-radius: 3px;
 }
 
-/* FAQ Section (now with Testimonials ID in HTML) */
+/* FAQ Section */
 .faq-section {
-    margin: 4rem 0; /* More vertical margin */
+    margin: 4rem 0;
 }
 
 .faq-item {
     margin-bottom: 10px;
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    overflow: hidden; /* Ensure rounded corners clip content */
+    overflow: hidden;
     transition: border-color 0.3s;
 }
 
 .faq-question {
-    background: var(--card-bg-light); /* Matching card background */
-    padding: 1rem 1.5rem; /* More padding */
+    background: var(--card-bg);
+    padding: 1rem 1.5rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--text-primary);
     transition: background-color 0.2s;
 }
 
 .faq-question:hover {
-    background-color: #f0f0f0; /* Subtle hover effect */
+    background-color: #333; /* Slightly lighter on hover in dark mode */
 }
 
 .faq-question span {
@@ -271,7 +289,7 @@ nav {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--primary-color); /* Icon color */
+    color: var(--link-color);
     padding: 0 5px;
     transition: transform 0.2s;
 }
@@ -279,9 +297,9 @@ nav {
 .faq-answer {
     display: none;
     padding: 1rem 1.5rem;
-    background: #fafafa; /* Slightly different background for answer */
-    border-top: 1px solid var(--border-color-light);
-    color: #555; /* Softer text color */
+    background: #222; /* Slightly different background for answer in dark mode */
+    border-top: 1px solid var(--border-color);
+    color: #bbb;
     font-size: 0.95rem;
     transition: background-color 0.3s, border-color 0.3s;
 }
@@ -292,11 +310,11 @@ nav {
 
 /* Footer */
 footer {
-    background-color: #ec9b9b; /* Matching header color */
-    padding: 2rem 0; /* More padding */
+    background-color: var(--header-footer-bg);
+    padding: 2rem 0;
     text-align: center;
-    color: var(--text-color); /* Inherit color for theme changes */
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    color: var(--text-primary);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
 .footer-content {
@@ -317,195 +335,214 @@ footer {
 
 .social-links a {
     margin: 0 15px;
-    color: #333; /* Darker color for social icons in light mode */
-    font-size: 1.8rem; /* Larger icons */
+    color: var(--text-primary); /* Default icon color in dark mode */
+    font-size: 1.8rem;
     transition: color 0.2s ease-in-out;
 }
 
 .social-links a:hover {
-    color: var(--primary-color); /* Primary color on hover */
+    color: var(--link-color);
 }
 
 /* Embedded Form (Iframe) */
 footer iframe {
     width: 100%;
-    max-width: 600px; /* Constrain width for better display */
-    height: 600px; /* Default height, can be adjusted */
-    border: 1px solid var(--border-color-light); /* Add border */
-    border-radius: 8px; /* Rounded corners */
+    max-width: 600px;
+    height: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     margin-top: 1.5rem;
 }
 
 
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
+/* LIGHT MODE OVERRIDES (applied when body has .light-mode class) */
+body.light-mode {
+    background-color: var(--light-bg-primary);
+    color: var(--light-text-primary);
 }
 
-body.dark-mode header,
-body.dark-mode footer {
-    background-color: #222; /* Darker header/footer */
-    color: var(--dark-text);
+body.light-mode header,
+body.light-mode footer {
+    background-color: var(--light-header-footer-bg);
+    color: var(--light-text-primary);
 }
 
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6 {
-    color: var(--dark-text);
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6 {
+    color: var(--light-text-primary);
 }
 
-body.dark-mode a {
-    color: #79c0ff; /* Lighter blue for links in dark mode */
+body.light-mode a {
+    color: var(--light-link-color);
 }
 
-body.dark-mode a:hover {
-    color: #4da6ff; /* Slightly darker hover in dark mode */
+body.light-mode a:hover {
+    color: #0056b3;
 }
 
-body.dark-mode .hero-section {
-    background-color: #000000; /* Black background for hero in dark mode */
-    color: gold; /* Gold font color */
+body.light-mode .logo img {
+    border-color: var(--light-link-color);
 }
 
-body.dark-mode .hero-section p {
-    color: #ccc; /* Lighter grey for general text in dark mode hero */
+body.light-mode .theme-toggle:hover {
+    background-color: rgba(0,0,0,0.05);
+    border-color: var(--light-link-color);
+}
+body.light-mode .hamburger:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
-body.dark-mode .hero-section .cta-text {
-    color: gold; /* Gold for CTA in dark mode hero */
+body.light-mode .hero-section {
+    background-color: var(--light-hero-bg);
+    color: var(--light-hero-text);
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.05);
 }
 
-body.dark-mode .resource-card {
-    background-color: var(--card-bg-dark);
-    border-color: var(--border-color-dark);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+body.light-mode .hero-section p {
+    color: var(--light-hero-p-text);
 }
 
-body.dark-mode .resource-category {
-    color: #79c0ff; /* Primary color in dark mode */
+body.light-mode .hero-section .cta-text {
+    color: var(--accent-color); /* Orange accent for light mode hero CTA */
 }
 
-body.dark-mode .resource-link {
-    color: var(--dark-text); /* Link text color in dark mode */
+body.light-mode .resource-card {
+    background-color: var(--light-card-bg);
+    border-color: var(--light-border-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-body.dark-mode .resource-link:hover {
-    background-color: rgba(121, 192, 255, 0.1); /* Subtle hover background in dark mode */
-    color: #79c0ff; /* Primary color on hover in dark mode */
+body.light-mode .resource-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-body.dark-mode .faq-item {
-    border-color: var(--border-color-dark);
+body.light-mode .resource-category {
+    color: var(--light-link-color);
 }
 
-body.dark-mode .faq-question {
-    background-color: #333;
-    color: var(--dark-text);
+body.light-mode .resource-link {
+    color: var(--light-text-primary);
 }
 
-body.dark-mode .faq-question:hover {
-    background-color: #444;
+body.light-mode .resource-link:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    color: var(--light-link-color);
 }
 
-body.dark-mode .faq-answer {
-    background-color: #222;
-    border-top-color: var(--border-color-dark);
-    color: #bbb;
+body.light-mode .faq-item {
+    border-color: var(--light-border-color);
 }
 
-body.dark-mode .faq-toggle {
-    color: #79c0ff;
+body.light-mode .faq-question {
+    background-color: var(--light-card-bg);
+    color: var(--light-text-primary);
 }
 
-body.dark-mode .social-links a {
-    color: var(--dark-text); /* Default icon color in dark mode */
+body.light-mode .faq-question:hover {
+    background-color: #f0f0f0;
 }
 
-body.dark-mode .social-links a:hover {
-    color: #79c0ff; /* Primary color on hover in dark mode */
+body.light-mode .faq-answer {
+    background-color: #fafafa;
+    border-top-color: var(--light-border-color);
+    color: #555;
+}
+
+body.light-mode .faq-toggle {
+    color: var(--light-link-color);
+}
+
+body.light-mode .social-links a {
+    color: var(--light-text-primary);
+}
+
+body.light-mode .social-links a:hover {
+    color: var(--light-link-color);
+}
+
+body.light-mode footer iframe {
+    border-color: var(--light-border-color);
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
     .container {
-        padding: 0.8rem 0; /* Slightly less padding on mobile */
+        padding: 0.8rem 0;
     }
 
-    /* Adjust nav for mobile: keep logo and hamburger on one row, then nav-links stack below */
     nav {
-        flex-direction: column; /* Stack primary elements (nav-top-row and nav-links) */
-        align-items: flex-start; /* Align contents to the left */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-top-row {
-        display: flex; /* Ensure this row remains flex */
-        justify-content: space-between; /* Logo left, hamburger right */
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        width: 100%; /* Take full width of nav */
-        margin-bottom: 10px; /* Space between top row and menu links */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     .logo-text h1 {
-        font-size: 1.3rem; /* Slightly smaller logo text on mobile */
+        font-size: 1.3rem;
     }
 
     .nav-links {
-        display: none; /* Hidden by default on mobile */
-        flex-direction: column; /* Stack links vertically */
-        width: 100%; /* Take full width */
-        text-align: center; /* Center the links */
-        padding-top: 10px; /* Space below the hamburger */
-        background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background for dropdown */
-        border-top: 1px solid var(--border-color-light);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+        background-color: rgba(34, 34, 34, 0.95); /* Semi-transparent dark background for dropdown */
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
         border-radius: 0 0 8px 8px;
     }
 
-    body.dark-mode .nav-links {
-        background-color: rgba(34, 34, 34, 0.95);
-        border-top-color: var(--border-color-dark);
+    body.light-mode .nav-links {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-top-color: var(--light-border-color);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
 
     .nav-links.show {
-        display: flex; /* Show when 'show' class is added by JS */
+        display: flex;
     }
 
     .nav-links a {
-        margin: 0.7rem 0; /* Vertical margin for stacked links */
+        margin: 0.7rem 0;
         padding: 0.5rem 0;
-        width: 100%; /* Make links take full width of menu */
-        border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separator */
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separator in dark mode */
     }
-    body.dark-mode .nav-links a {
-        border-bottom-color: rgba(255,255,255,0.05);
+    body.light-mode .nav-links a {
+        border-bottom-color: rgba(0,0,0,0.05); /* Subtle separator in light mode */
     }
     .nav-links a:last-child {
-        border-bottom: none; /* No separator for last item */
+        border-bottom: none;
     }
 
-
     .hamburger {
-        display: block; /* Show hamburger button on small screens */
+        display: block;
     }
 
     .theme-toggle {
-        margin-left: 0; /* No left margin when part of stacked menu */
-        margin-top: 1rem; /* Push down if it's the last item in a stacked menu */
+        margin-left: 0;
+        margin-top: 1rem;
     }
 
-    /* Adjust order for theme toggle in mobile menu if desired */
     .nav-links.show .theme-toggle {
-        order: 1; /* Place at the top of the mobile menu */
-        align-self: center; /* Center it */
+        order: 1;
+        align-self: center;
         width: auto;
     }
 
     .hero-section h1 {
-        font-size: 2rem; /* Adjust heading size for mobile */
+        font-size: 2rem;
     }
 
     .hero-section p {
@@ -513,7 +550,7 @@ body.dark-mode .social-links a:hover {
     }
 
     .resources-grid {
-        gap: 1.5rem; /* Slightly less gap on mobile */
+        gap: 1.5rem;
     }
 
     .resource-card {
@@ -529,11 +566,11 @@ body.dark-mode .social-links a:hover {
     }
 
     .social-links a {
-        font-size: 1.5rem; /* Smaller icons on mobile */
+        font-size: 1.5rem;
         margin: 0 10px;
     }
 
     footer iframe {
-        height: 500px; /* Adjust iframe height for mobile */
+        height: 500px;
     }
 }
