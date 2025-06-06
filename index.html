@@ -1,140 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyantakyi Francis | Tech Genius</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyantakyi Francis | Tech Genius</title>
+
+    <link rel="icon" href="my logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container nav-container">
-      <nav>
-        <div class="logo">
-          <img src="dp.jpg" alt="Nyantakyi Francis Photo" />
-          <div class="logo-text">
-            <h1>Nyantakyi Francis</h1>
-          </div>
+    <header>
+        <div class="container nav-container">
+            <nav>
+                <div class="nav-top-row"> <div class="logo">
+                        <img src="dp.jpg" alt="Nyantakyi Francis Profile Photo">
+                        <div class="logo-text">
+                            <h1>Nyantakyi Francis</h1>
+                        </div>
+                    </div>
+                    <button class="hamburger" id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+                </div>
+                <div class="nav-links" id="nav-menu">
+                    <a href="#about">About Me</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌓</button>
+                </div>
+            </nav>
         </div>
-        <button class="hamburger" id="menu-toggle">☰</button>
-        <div class="nav-links" id="nav-menu">
-          <a href="#about">About Me</a>
-          <a href="#resources">Resources</a>
-          <a href="#contact">Contact</a>
-          <a href="#testimonials">Testimonials</a>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌓</button>
-        </div>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <section class="resources-header" id="about">
-    <div class="container">
-      <h1>Welcome to My Resource Hub</h1>
-      <p>Hello, my name is Nyantakyi Francis. I'm from Ghana, a country known for its rich culture and warm hospitality. I have a passion for learning new things, especially when it comes to exploring new ideas and skills. In my free time, I enjoy watching anime, reading about technology, and engaging in creative projects. I'm always excited to connect with others and exchange knowledge that helps me grow.<br><br>
-      <strong>Feel free to consult me for all your 21st-century learning and tech solutions!</strong></p>
-    </div>
-  </section>
+    <section class="hero-section" id="about">
+        <div class="container">
+            <h1>Welcome to My Resource Hub</h1>
+            <p>Hello, my name is Nyantakyi Francis. I'm from Ghana, a country known for its rich culture and warm hospitality. I have a passion for learning new things, especially when it comes to exploring new ideas and skills. In my free time, I enjoy watching anime, reading about technology, and engaging in creative projects. I'm always excited to connect with others and exchange knowledge that helps me grow.</p>
+            <p class="cta-text"><strong>Feel free to consult me for all your 21st-century learning and tech solutions!</strong></p>
+        </div>
+    </section>
 
-  <main class="container" id="resources">
-    <h2 class="section-title">Quick Access Resources</h2>
-    <div class="resources-grid">
-      <!-- Mathematics -->
-      <div class="resource-card">
-        <div class="resource-category">
-          <i class="fas fa-square-root-alt"></i> Mathematics
-        </div>
-        <ul class="resource-list">
-          <li class="resource-item"><a href="https://www.wolframalpha.com/" class="resource-link" target="_blank">Wolfram Alpha</a> – Computational intelligence</li>
-          <li class="resource-item"><a href="https://www.geogebra.org/" class="resource-link" target="_blank">GeoGebra</a> – Graphing & geometry</li>
-          <li class="resource-item"><a href="https://mathsgenie.co.uk/exampapers.html" class="resource-link" target="_blank">Exam Tips & Study Guides</a></li>
-          <li class="resource-item"><a href="https://www.savemyexams.co.uk/" class="resource-link" target="_blank">Formula & Cheat Sheets</a></li>
-          <li class="resource-item"><a href="https://revisionmaths.com/level-revision/past-papers" class="resource-link" target="_blank">Past Exam Papers</a></li>
-        </ul>
-      </div>
+    <main class="container" id="resources">
+        <h2 class="section-title">Quick Access Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-category">
+                    <i class="fas fa-square-root-alt"></i> Mathematics
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item"><a href="https://www.wolframalpha.com/" class="resource-link" target="_blank" rel="noopener noreferrer">Wolfram Alpha</a> – Computational intelligence & problem solver</li>
+                    <li class="resource-item"><a href="https://www.geogebra.org/" class="resource-link" target="_blank" rel="noopener noreferrer">GeoGebra</a> – Interactive graphing & geometry tools</li>
+                    <li class="resource-item"><a href="https://mathsgenie.co.uk/exampapers.html" class="resource-link" target="_blank" rel="noopener noreferrer">Maths Genie</a> – Exam tips & study guides for UK exams</li>
+                    <li class="resource-item"><a href="https://www.savemyexams.co.uk/" class="resource-link" target="_blank" rel="noopener noreferrer">Save My Exams</a> – Comprehensive formula & cheat sheets</li>
+                    <li class="resource-item"><a href="https://revisionmaths.com/level-revision/past-papers" class="resource-link" target="_blank" rel="noopener noreferrer">Revision Maths</a> – Collection of past exam papers</li>
+                </ul>
+            </div>
 
-      <!-- Information Technology -->
-      <div class="resource-card">
-        <div class="resource-category">
-          <i class="fas fa-laptop-code"></i> Information Technology
-        </div>
-        <ul class="resource-list">
-          <li class="resource-item"><a href="https://leetcode.com/" class="resource-link" target="_blank">LeetCode</a> – Coding challenges</li>
-          <li class="resource-item"><a href="https://www.freecodecamp.org/" class="resource-link" target="_blank">Free Coding Tutorials</a></li>
-          <li class="resource-item"><a href="https://github.com/florinpop17/app-ideas" class="resource-link" target="_blank">Project Ideas</a></li>
-          <li class="resource-item"><a href="https://code.visualstudio.com/" class="resource-link" target="_blank">Development Tools</a></li>
-          <li class="resource-item"><a href="https://roadmap.sh/" class="resource-link" target="_blank">ICT Career Guidance</a></li>
-        </ul>
-      </div>
+            <div class="resource-card">
+                <div class="resource-category">
+                    <i class="fas fa-laptop-code"></i> Information Technology
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item"><a href="https://leetcode.com/" class="resource-link" target="_blank" rel="noopener noreferrer">LeetCode</a> – Coding challenges for skill development</li>
+                    <li class="resource-item"><a href="https://www.freecodecamp.org/" class="resource-link" target="_blank" rel="noopener noreferrer">freeCodeCamp</a> – Free coding tutorials & certifications</li>
+                    <li class="resource-item"><a href="https://github.com/florinpop17/app-ideas" class="resource-link" target="_blank" rel="noopener noreferrer">App Ideas Collection</a> – Project ideas for various skill levels</li>
+                    <li class="resource-item"><a href="https://code.visualstudio.com/" class="resource-link" target="_blank" rel="noopener noreferrer">VS Code</a> – Popular development tool (code editor)</li>
+                    <li class="resource-item"><a href="https://roadmap.sh/" class="resource-link" target="_blank" rel="noopener noreferrer">Developer Roadmaps</a> – ICT career guidance & learning paths</li>
+                </ul>
+            </div>
 
-      <!-- Study Support -->
-      <div class="resource-card">
-        <div class="resource-category">
-          <i class="fas fa-graduation-cap"></i> Study Support
+            <div class="resource-card">
+                <div class="resource-category">
+                    <i class="fas fa-graduation-cap"></i> Study Support
+                </div>
+                <ul class="resource-list">
+                    <li class="resource-item"><a href="https://todoist.com/" class="resource-link" target="_blank" rel="noopener noreferrer">Todoist</a> – Time management & task organization tools</li>
+                    <li class="resource-item"><a href="https://evernote.com/templates" class="resource-link" target="_blank" rel="noopener noreferrer">Evernote Templates</a> – Resources for effective note-taking</li>
+                    <li class="resource-item"><a href="https://www.scribbr.com/methodology/research-methodology/" class="resource-link" target="_blank" rel="noopener noreferrer">Scribbr</a> – Guides on research methodology</li>
+                    <li class="resource-item"><a href="https://www.grammarly.com/blog/academic-writing/" class="resource-link" target="_blank" rel="noopener noreferrer">Grammarly Blog</a> – Resources for improving academic writing</li>
+                    <li class="resource-item"><a href="https://www.slidescarnival.com/" class="resource-link" target="_blank" rel="noopener noreferrer">SlidesCarnival</a> – Free templates for impactful presentations</li>
+                </ul>
+            </div>
         </div>
-        <ul class="resource-list">
-          <li class="resource-item"><a href="https://todoist.com/" class="resource-link" target="_blank">Time Management Tools</a></li>
-          <li class="resource-item"><a href="https://evernote.com/templates" class="resource-link" target="_blank">Note-Taking Templates</a></li>
-          <li class="resource-item"><a href="https://www.scribbr.com/methodology/research-methodology/" class="resource-link" target="_blank">Research Guides</a></li>
-          <li class="resource-item"><a href="https://www.grammarly.com/blog/academic-writing/" class="resource-link" target="_blank">Writing Resources</a></li>
-          <li class="resource-item"><a href="https://www.slidescarnival.com/" class="resource-link" target="_blank">Presentation Skills</a></li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="faq-section" id="testimonials">
-      <h2 class="section-title">Resources FAQ</h2>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(1)">
-          <span>What are the best resources for preparing for maths exams?</span>
-          <button class="faq-toggle">+</button>
-        </div>
-        <div class="faq-answer" id="answer1">
-          Use platforms like <a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a>, <a href="https://mathsgenie.co.uk/exampapers.html" target="_blank">Maths Genie</a>, and practice with past papers.
-        </div>
-      </div>
+        <section class="faq-section" id="testimonials"> <h2 class="section-title">Resources FAQ</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(1)">
+                    <span>What are the best resources for preparing for maths exams?</span>
+                    <button class="faq-toggle">+</button>
+                </div>
+                <div class="faq-answer" id="answer1">
+                    Use platforms like <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer">Wolfram Alpha</a>, <a href="https://mathsgenie.co.uk/exampapers.html" target="_blank" rel="noopener noreferrer">Maths Genie</a>, and practice with past papers.
+                </div>
+            </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(2)">
-          <span>How can I access past exam papers for ICT courses?</span>
-          <button class="faq-toggle">+</button>
-        </div>
-        <div class="faq-answer" id="answer2">
-          Visit your institution’s portal, the MISA resource page, or check with your department. You can also find official past papers on <a href="https://www.ocr.org.uk/qualifications/" target="_blank">OCR</a>.
-        </div>
-      </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(2)">
+                    <span>How can I access past exam papers for ICT courses?</span>
+                    <button class="faq-toggle">+</button>
+                </div>
+                <div class="faq-answer" id="answer2">
+                    Visit your institution’s portal, the MISA resource page, or check with your department. You can also find official past papers on <a href="https://www.ocr.org.uk/qualifications/" target="_blank" rel="noopener noreferrer">OCR</a>.
+                </div>
+            </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(3)">
-          <span>Are there any recommended free coding platforms for beginners?</span>
-          <button class="faq-toggle">+</button>
-        </div>
-        <div class="faq-answer" id="answer3">
-          Yes! <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>, <a href="https://www.codecademy.com/" target="_blank">Codecademy</a>, and <a href="https://www.sololearn.com/" target="_blank">SoloLearn</a> are great for beginners.
-        </div>
-      </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(3)">
+                    <span>Are there any recommended free coding platforms for beginners?</span>
+                    <button class="faq-toggle">+</button>
+                </div>
+                <div class="faq-answer" id="answer3">
+                    Yes! <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>, <a href="https://www.codecademy.com/" target="_blank" rel="noopener noreferrer">Codecademy</a>, and <a href="https://www.sololearn.com/" target="_blank" rel="noopener noreferrer">SoloLearn</a> are great for beginners.
+                </div>
+            </div>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleAnswer(4)">
-          <span>Where can I find additional learning materials for advanced mathematics?</span>
-          <button class="faq-toggle">+</button>
-        </div>
-        <div class="faq-answer" id="answer4">
-          Explore <a href="https://ocw.mit.edu/courses/mathematics/" target="_blank">MIT OCW</a>, <a href="https://www.khanacademy.org/math" target="_blank">Khan Academy</a>, and <a href="https://arxiv.org/" target="_blank">arXiv.org</a> for deeper math concepts.
-        </div>
-      </div>
-    </div>
-  </main>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(4)">
+                    <span>Where can I find additional learning materials for advanced mathematics?</span>
+                    <button class="faq-toggle">+</button>
+                </div>
+                <div class="faq-answer" id="answer4">
+                    Explore <a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" rel="noopener noreferrer">MIT OCW</a>, <a href="https://www.khanacademy.org/math" target="_blank" rel="noopener noreferrer">Khan Academy</a>, and <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv.org</a> for deeper math concepts.
+                </div>
+            </div>
+        </section>
 
-<footer id="contact">
-  <div class="container footer-content">
-    <p>Connect with me:</p>
-    <div class="social-links">
-      <a href="mailto:nyantakyifrancis54@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://wa.me/233595715528" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeyCAI3JEXC1TFiTOB_JBQKYFaI16L4mKxzRJgWzR4aQbp6yA/viewform?embedded=true" width="640" height="721" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
-</footer>
+        </main>
 
+    <footer id="contact">
+        <div class="container footer-content">
+            <p>Connect with me:</p>
+            <div class="social-links">
+                <a href="mailto:nyantakyifrancis54@gmail.com" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/233595715528" target="_blank" rel="noopener noreferrer" aria-label="Connect on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeyCAI3JEXC1TFiTOB_JBQKYFaI16L4mKxzRJgWzR4aQbp6yA/viewform?embedded=true" width="640" height="721" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="Contact Form">Loading…</iframe>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

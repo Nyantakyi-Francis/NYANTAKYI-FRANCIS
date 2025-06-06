@@ -1,238 +1,539 @@
+/* CSS Variables */
 :root {
-  --primary-color: #007bff;
-  --light-bg: #eea4c6;
-  --dark-bg: #332929;
-  --text-color: #333;
-  --dark-text: #e0e0e0;
+    --primary-color: #007bff; /* Original blue, good for links */
+    --accent-color: #f77f00; /* New accent for highlights/buttons */
+    --light-bg: #f5f5f5; /* Lighter background for light mode */
+    --dark-bg: #1a1a1a; /* Darker background for dark mode */
+    --text-color: #333; /* Dark text for light mode */
+    --dark-text: #e0e0e0; /* Light text for dark mode */
+    --card-bg-light: #ffffff; /* Card background in light mode */
+    --card-bg-dark: #2a2a2a; /* Card background in dark mode */
+    --border-color-light: #ddd;
+    --border-color-dark: #444;
+
+    /* Fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
 }
 
+/* Base Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: var(--light-bg);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
-}
-
-header, footer {
-  background-color: #ec9b9b;
-  padding: 1rem 0;
+    font-family: var(--font-body);
+    margin: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 0; /* Add padding for consistency */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-color); /* Default */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #0056b3; /* Slightly darker primary color on hover */
+}
+
+/* Header & Navigation */
+header {
+    background-color: #ec9b9b; /* Still using your original header color for light mode */
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping */
+}
+
+.nav-top-row { /* NEW WRAPPER FOR MOBILE HAMBURGER/LOGO */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width within nav on mobile */
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow logo to take space on small screens */
 }
 
 .logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-  background: #ccc;
+    width: 50px; /* Slightly larger logo */
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px; /* Increased margin */
+    border: 2px solid var(--primary-color); /* Add a subtle border */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.logo-text h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    white-space: nowrap; /* Prevent name from wrapping */
+}
+
+.nav-links {
+    display: flex; /* Default to flex for horizontal layout on large screens */
+    align-items: center;
 }
 
 .nav-links a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: var(--text-color);
+    margin: 0 15px; /* Increased margin for better spacing */
+    font-weight: 500;
+    color: inherit; /* Inherit color from body for theme changes */
 }
 
+.nav-links a:hover {
+    color: var(--primary-color); /* Keep primary color for hover in both modes */
+}
+
+/* Theme Toggle Button */
 .theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: inherit;
-  margin-left: 1rem;
+    background: none;
+    border: 2px solid transparent; /* Subtle border that shows on focus/hover */
+    font-size: 1.4rem; /* Slightly larger icon */
+    cursor: pointer;
+    color: inherit; /* Inherit color from body for theme changes */
+    margin-left: 1.5rem;
+    padding: 5px 8px; /* Add padding for clickable area */
+    border-radius: 5px;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
-.resources-header {
-  padding: 2rem 0;
-  text-align: center;
-  background: #eaf1fa;
+.theme-toggle:hover {
+    background-color: rgba(0,0,0,0.05); /* Subtle background on hover */
+    border-color: var(--primary-color);
 }
 
+/* Hamburger Menu (hidden by default on large screens) */
+.hamburger {
+    display: none; /* Hidden on large screens */
+    font-size: 1.8rem; /* Larger hamburger icon */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit; /* Inherit color for theme changes */
+    padding: 5px 10px; /* Add padding for clickable area */
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.hamburger:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Hero Section (was resources-header) */
+.hero-section {
+    padding: 3rem 0; /* More padding for a bolder look */
+    text-align: center;
+    background: #eaf1fa; /* Light background for light mode */
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.05); /* Subtle inner shadow */
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 1.5rem auto;
+    color: #555;
+}
+
+.hero-section .cta-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color); /* Highlight the CTA */
+    margin-top: 1rem;
+}
+
+
+/* Resources Grid */
 .resources-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 2rem 0;
+    display: grid;
+    gap: 2rem; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for cards */
+    margin: 3rem 0; /* More vertical margin */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
 }
 
 .resource-card {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+    background: var(--card-bg-light);
+    padding: 1.5rem; /* More padding */
+    border-radius: 10px; /* Softer corners */
+    border: 1px solid var(--border-color-light);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s, border-color 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 .resource-category {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem; /* More space */
+    font-size: 1.1rem;
+    color: var(--primary-color); /* Use primary color for category headings */
+}
+
+.resource-category i {
+    margin-right: 8px;
+    font-size: 1.2rem;
 }
 
 .resource-list {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .resource-item {
-  margin-bottom: 0.4rem;
+    margin-bottom: 0.7rem; /* More spacing between items */
 }
 
 .resource-link {
-  text-decoration: none;
-  color: var(--primary-color);
+    display: block; /* Make the entire list item area clickable */
+    padding: 5px 0; /* Padding for better clickable area */
+    color: var(--text-color); /* Default text color for list items */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
+.resource-link:hover {
+    color: var(--primary-color); /* Primary color on hover */
+    background-color: rgba(0, 123, 255, 0.05); /* Very subtle background on hover */
+    border-radius: 3px;
+}
+
+/* FAQ Section (now with Testimonials ID in HTML) */
 .faq-section {
-  margin: 3rem 0;
+    margin: 4rem 0; /* More vertical margin */
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    overflow: hidden; /* Ensure rounded corners clip content */
+    transition: border-color 0.3s;
 }
 
 .faq-question {
-  background: #f0f0f0;
-  padding: 0.8rem;
-  cursor: pointer;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: var(--card-bg-light); /* Matching card background */
+    padding: 1rem 1.5rem; /* More padding */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0; /* Subtle hover effect */
+}
+
+.faq-question span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.faq-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color); /* Icon color */
+    padding: 0 5px;
+    transition: transform 0.2s;
 }
 
 .faq-answer {
-  display: none;
-  padding: 0.8rem;
-  background: #fafafa;
-  border-bottom: 1px solid #ddd;
+    display: none;
+    padding: 1rem 1.5rem;
+    background: #fafafa; /* Slightly different background for answer */
+    border-top: 1px solid var(--border-color-light);
+    color: #555; /* Softer text color */
+    font-size: 0.95rem;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
+.faq-answer a {
+    font-weight: 500;
+}
+
+/* Footer */
 footer {
-  text-align: center;
+    background-color: #ec9b9b; /* Matching header color */
+    padding: 2rem 0; /* More padding */
+    text-align: center;
+    color: var(--text-color); /* Inherit color for theme changes */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-content p {
-  margin: 0.5rem 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    margin-bottom: 1.5rem;
 }
 
 .social-links a {
-  margin: 0 10px;
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  text-decoration: none;
+    margin: 0 15px;
+    color: #333; /* Darker color for social icons in light mode */
+    font-size: 1.8rem; /* Larger icons */
+    transition: color 0.2s ease-in-out;
 }
 
-form input,
-form textarea {
-  width: 100%;
-  max-width: 400px;
-  padding: 0.5rem;
-  margin-bottom: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+.social-links a:hover {
+    color: var(--primary-color); /* Primary color on hover */
 }
 
-form button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 1rem;
+/* Embedded Form (Iframe) */
+footer iframe {
+    width: 100%;
+    max-width: 600px; /* Constrain width for better display */
+    height: 600px; /* Default height, can be adjusted */
+    border: 1px solid var(--border-color-light); /* Add border */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 1.5rem;
 }
 
-form button:hover {
-  background-color: #0056b3;
-}
 
-/* Dark Mode */
+/* Dark Mode Styles */
 body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
 body.dark-mode header,
 body.dark-mode footer {
-  background-color: #222;
+    background-color: #222; /* Darker header/footer */
+    color: var(--dark-text);
 }
 
-body.dark-mode .resource-card {
-  background-color: #1e1e1e;
-  border-color: #444;
-}
-
-body.dark-mode .faq-question {
-  background-color: #333;
-  border-bottom-color: #444;
-}
-
-body.dark-mode .faq-answer {
-  background-color: #222;
-  border-bottom-color: #444;
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--dark-text);
 }
 
 body.dark-mode a {
-  color: #66aaff;
+    color: #79c0ff; /* Lighter blue for links in dark mode */
 }
 
-body.dark-mode form input,
-body.dark-mode form textarea {
-  background-color: #333;
-  border-color: #555;
-  color: var(--dark-text);
+body.dark-mode a:hover {
+    color: #4da6ff; /* Slightly darker hover in dark mode */
 }
 
-body.dark-mode form button {
-  background-color: #3399ff;
+body.dark-mode .hero-section {
+    background-color: #000000; /* Black background for hero in dark mode */
+    color: gold; /* Gold font color */
 }
 
-
-body.dark-mode #about {
-  background-color: #000000; /* black background */
-  color: gold; /* gold font color */
+body.dark-mode .hero-section p {
+    color: #ccc; /* Lighter grey for general text in dark mode hero */
 }
 
-/* Also style the strong tag inside that section */
-body.dark-mode #about strong {
-  color: gold;
+body.dark-mode .hero-section .cta-text {
+    color: gold; /* Gold for CTA in dark mode hero */
 }
 
+body.dark-mode .resource-card {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
+body.dark-mode .resource-category {
+    color: #79c0ff; /* Primary color in dark mode */
+}
 
+body.dark-mode .resource-link {
+    color: var(--dark-text); /* Link text color in dark mode */
+}
+
+body.dark-mode .resource-link:hover {
+    background-color: rgba(121, 192, 255, 0.1); /* Subtle hover background in dark mode */
+    color: #79c0ff; /* Primary color on hover in dark mode */
+}
+
+body.dark-mode .faq-item {
+    border-color: var(--border-color-dark);
+}
+
+body.dark-mode .faq-question {
+    background-color: #333;
+    color: var(--dark-text);
+}
+
+body.dark-mode .faq-question:hover {
+    background-color: #444;
+}
+
+body.dark-mode .faq-answer {
+    background-color: #222;
+    border-top-color: var(--border-color-dark);
+    color: #bbb;
+}
+
+body.dark-mode .faq-toggle {
+    color: #79c0ff;
+}
+
+body.dark-mode .social-links a {
+    color: var(--dark-text); /* Default icon color in dark mode */
+}
+
+body.dark-mode .social-links a:hover {
+    color: #79c0ff; /* Primary color on hover in dark mode */
+}
+
+/* Responsive Design */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-  }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-  .nav-links.show {
-    display: flex;
-  }
-  .nav-links a {
-    margin: 0.5rem 0;
-  }
-  .hamburger {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+    .container {
+        padding: 0.8rem 0; /* Slightly less padding on mobile */
+    }
+
+    /* Adjust nav for mobile: keep logo and hamburger on one row, then nav-links stack below */
+    nav {
+        flex-direction: column; /* Stack primary elements (nav-top-row and nav-links) */
+        align-items: flex-start; /* Align contents to the left */
+    }
+
+    .nav-top-row {
+        display: flex; /* Ensure this row remains flex */
+        justify-content: space-between; /* Logo left, hamburger right */
+        align-items: center;
+        width: 100%; /* Take full width of nav */
+        margin-bottom: 10px; /* Space between top row and menu links */
+    }
+
+    .logo-text h1 {
+        font-size: 1.3rem; /* Slightly smaller logo text on mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Take full width */
+        text-align: center; /* Center the links */
+        padding-top: 10px; /* Space below the hamburger */
+        background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background for dropdown */
+        border-top: 1px solid var(--border-color-light);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 8px 8px;
+    }
+
+    body.dark-mode .nav-links {
+        background-color: rgba(34, 34, 34, 0.95);
+        border-top-color: var(--border-color-dark);
+    }
+
+    .nav-links.show {
+        display: flex; /* Show when 'show' class is added by JS */
+    }
+
+    .nav-links a {
+        margin: 0.7rem 0; /* Vertical margin for stacked links */
+        padding: 0.5rem 0;
+        width: 100%; /* Make links take full width of menu */
+        border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separator */
+    }
+    body.dark-mode .nav-links a {
+        border-bottom-color: rgba(255,255,255,0.05);
+    }
+    .nav-links a:last-child {
+        border-bottom: none; /* No separator for last item */
+    }
+
+
+    .hamburger {
+        display: block; /* Show hamburger button on small screens */
+    }
+
+    .theme-toggle {
+        margin-left: 0; /* No left margin when part of stacked menu */
+        margin-top: 1rem; /* Push down if it's the last item in a stacked menu */
+    }
+
+    /* Adjust order for theme toggle in mobile menu if desired */
+    .nav-links.show .theme-toggle {
+        order: 1; /* Place at the top of the mobile menu */
+        align-self: center; /* Center it */
+        width: auto;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem; /* Adjust heading size for mobile */
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .resources-grid {
+        gap: 1.5rem; /* Slightly less gap on mobile */
+    }
+
+    .resource-card {
+        padding: 1rem;
+    }
+
+    .faq-question {
+        padding: 0.8rem 1rem;
+    }
+
+    .faq-answer {
+        padding: 0.8rem 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem; /* Smaller icons on mobile */
+        margin: 0 10px;
+    }
+
+    footer iframe {
+        height: 500px; /* Adjust iframe height for mobile */
+    }
 }
